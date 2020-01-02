@@ -44,9 +44,9 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     //res.status(201).send({'error': '', 'body': 'Creado correctamente.' })
     var body = req.body
-    controller.addMessage(body.user, body.message)
-    .then(()=>{
-        response.success(req, res, "Creado correctamente", 201)
+    controller.addMessage(body.chat, body.user, body.message)
+    .then((data)=>{
+        response.success(req, res, data, 201)
     }).catch((error) =>{
         response.error(req, res, "información invalida", 400, 'Es solo una simulación de los errores')    
     })

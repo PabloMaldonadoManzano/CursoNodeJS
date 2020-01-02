@@ -1,7 +1,9 @@
 const express = require('express')
-//const router = require('./components/network.js')
-const router = require('./network/routes.js')
 var app = express()
+const router = require('./network/routes.js')
+
+const db = require('./db')
+db('mongodb+srv://teleground_user:0Zv9aljrnlWqegvX@cluster0-pz1qw.mongodb.net/teleground?retryWrites=true&w=majority')
 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
@@ -13,4 +15,3 @@ app.use('/app', express.static('public'))
 app.listen(3000)
 
 console-console.log('La aplicación está escuchando en http://localhost:3000');
-
